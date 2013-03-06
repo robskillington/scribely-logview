@@ -1,0 +1,17 @@
+{
+  "name": "scribely-logview",
+  "description": "A live log viewer for scribely to view real-time logs streaming from a distributed system",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/robskillington/scribely-logview"
+  },
+  "dependencies": {
+    "scribely" : "0.0.2",
+    "underscore" : "1.4.4"
+  },
+  "author": {
+    "name": "Rob Skillington",
+    "url": "http://github.com/robskillington"
+  }
+}
