@@ -32,7 +32,10 @@ var consumer = new scribely.Consumer(function (packet) {
 
             var at = parseInt((log.UtcCreated - app.MIN_TICKS) / 10000);
 
-            pretty += new Date(at).toLocaleString() + ' ';
+            pretty += new Date(at).toLocaleString() + "\n";
+
+            pretty += 'Host: "' + log.LogHost + '"' + "\n"; 
+            pretty += 'From: "' + log.LogFrom + '"';
 
             app.out.log(pretty);
             console.log(log.LogContent);
