@@ -61,19 +61,18 @@ app.out.line('');
 
 function forwardOutputToFileLogs() {
     // Also log to file
+    // TODO: move as arguments to application
     var stdoutFile = 'log.txt';
     var stderrFile = 'error.txt';
 
-    //create a new stdout file stream
-    var stdoutFS = fs.createWriteStream(stdoutFile, {
+    var stdoutFileStream = fs.createWriteStream(stdoutFile, {
         encoding: 'utf8',
-        flags   : 'a+'
+        flags: 'a+'
     });
 
-    //create a new stderr file stream
-    var stderrFS = fs.createWriteStream(stderrFile, {
+    var stderrFileStream = fs.createWriteStream(stderrFile, {
         encoding: 'utf8',
-        flags   : 'a+'
+        flags: 'a+'
     });
 
     var hookWriteStream = function (stream, callback) {
@@ -92,34 +91,34 @@ function forwardOutputToFileLogs() {
     };
 
     var unhookStdout = hookWriteStream(process.stdout, function(string, encoding, fd) {
-        stdoutFS.write(string, encoding || 'utf8');
+        stdoutFileStream.write(string, encoding || 'utf8');
     });
 
     console.log('Prepared new stdout hook to worker file');
 
     var unhookStderr = hookWriteStream(process.stderr, function(string, encoding, fd) {
-        stderrFS.write(string, encoding || 'utf8');
+        stderrFileStream.write(string, encoding || 'utf8');
     });
 
     console.log('Prepared new stderr hook to worker file');
 
-    stdoutFS.once('close', function() {
+    stdoutFileStream.once('close', function() {
         unhookStdout();
-        console.log('Unhooked stdout.');
+        console.log('Unhooked stdout');
     });
 
-    stdoutFS.once('error', function(err) {
+    stdoutFileStream.once('error', function(err) {
         unhookStdout();
-        console.error('Error: Unhooked stdout due to error %j.', err);
+        console.error('Error: Unhooked stdout due to error %j', err);
     });
 
-    stderrFS.once('close', function() {
+    stderrFileStream.once('close', function() {
         unhookStderr();
-        console.log('Unhooked stderr.');
+        console.log('Unhooked stderr');
     });
 
-    stderrFS.once('error', function(err) {
+    stderrFileStream.once('error', function(err) {
         unhookStderr();
-        console.error('Error: Unhooked stderr due to error %j.', err);
+        console.error('Error: Unhooked stderr due to error %j', err);
     });
 }
