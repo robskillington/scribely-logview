@@ -99,26 +99,8 @@ exports.logview = function (port) {
 
             // subscribe to collector log events
             var add = collector.on('add', function (log) {
-                getSocketVars(socket, function (error, vars) {
-                    // Verify loglevel filter matches
-                    if (_.contains(vars.loglevels, log.LogTag)) {
-
-                        // Verify filter string matches
-                        if (vars.filter && vars.filter.length > 0) {
-
-                            // Only send down if match on the LogContent.Message field
-                            if (log.LogContent && log.LogContent.Message && 
-                                log.LogContent.Message.toLowerCase().indexOf(vars.filter.toLowerCase()) != -1)
-                            {
-                                socket.emit('logadd', log);
-                            }
-
-                        } else {
-                            // No filter matches send down log
-                            socket.emit('logadd', log);
-                        }
-                    }
-                });
+                // No filter matches send down log
+                socket.emit('logadd', log);
             });
 
             // send down a small snippet of the backlogs
