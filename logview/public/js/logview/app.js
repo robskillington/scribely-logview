@@ -80,7 +80,7 @@
       },
 
       parse: function (packet) {
-        packet.Created = new Date(parseInt(packet.Created));
+        packet.Created = new Date(parseInt(packet.UtcCreated));
         return packet;
       },
 
