@@ -55,11 +55,14 @@ a.brand .title {
     }
 }
 
-#play-control {
+#view-controls {
     position:fixed;
-    left:40%;
-    top:-2px;
-    z-index:10000;
+    top: 220px;
+    right: 22px;
+}
+
+#view-controls button {
+    width: 120px;
 }
 
 #filter-log-text {

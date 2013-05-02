@@ -1,25 +1,66 @@
 
-<script id="row-template" type="text/x-handlebars-template">
-  <div class="logview row">
-      <div class="modal">
-        <div class="modal-body">
-          <code>{{body}}</code>
-        </div>
-        <div class="modal-footer attribs">
-          <div class="when">{{when}}</div>
-          <div class="loglevel"><span class="label {{loglabel}}">{{loglevel}}</span></div>
-        </div>
-      </div>
-  </div>
-</script>
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span9">
 
-<div id="logviewrows">
+          <script id="row-template" type="text/x-handlebars-template">
+            <div class="logview row">
+                <div class="modal">
+                  <div class="modal-body">
+                    <code>{{body}}</code>
+                  </div>
+                  <div class="modal-footer attribs">
+                    <div class="when">{{when}}</div>
+                    <div class="loglevel"><span class="label {{loglabel}}">{{loglevel}}</span></div>
+                  </div>
+                </div>
+            </div>
+          </script>
 
-</div>
+          <div id="logviewrows">
 
-<div id="play-control">
-    <button id="play-pause-button" class="btn btn-large btn-success" type="button">Click to pause</button>
-</div>
+          </div>
+
+        </div><!--/span-->
+        <div class="span3">
+          <div class="well sidebar-nav sidebar-nav-fixed">
+
+            <ul class="nav nav-list">
+              <li class="nav-header">Logging level</li>
+              <li>
+                <label class="checkbox">
+                    <input class="checkbox-loglevel" type="checkbox" value="verbose" checked />
+                    Verbose
+                </label>
+                <label class="checkbox">
+                    <input class="checkbox-loglevel" type="checkbox" value="info" checked />
+                    Info
+                </label>
+                <label class="checkbox">
+                    <input class="checkbox-loglevel" type="checkbox" value="warning" checked />
+                    Warning
+                </label>
+                <label class="checkbox">
+                    <input class="checkbox-loglevel" type="checkbox" value="error" checked />
+                    Error
+                </label>
+              </li>
+            </ul>
+          </div><!--/.well -->
+          
+          <div id="view-controls">
+            <button id="play-pause-button" class="btn btn-large btn-success" type="button">
+              Pause
+            </button>
+            <button id="clear-button" class="btn btn-large btn-warning" type="button">
+              Clear
+            </button>
+          </div>
+          
+        </div><!--/span-->
+      </div><!--/row-->
+
+    </div>
 
 <%- contentFor('script') %>
 <script type="text/javascript" src="/js/handlebars.js"></script>

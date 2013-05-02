@@ -43,12 +43,12 @@
           e.preventDefault();
           if (!self.paused) {
             self.paused = true;
-            playPauseButton.text('Click to resume').removeClass('btn-success').addClass('btn-inverse');
+            playPauseButton.text('Resume').removeClass('btn-success').addClass('btn-inverse');
           } else {
             self.paused = false;
             $('.hiddenbypause').removeClass('hiddenbypause');
             $('.logview.row:hidden:not(.filteredout)').fadeIn(ANIM_SPEED);
-            playPauseButton.text('Click to pause').addClass('btn-success').removeClass('btn-inverse');
+            playPauseButton.text('Pause').addClass('btn-success').removeClass('btn-inverse');
           }
         });
 
@@ -76,6 +76,13 @@
             self.activeFilterLogLevel = _.without(self.activeFilterLogLevel, level);
             self.runFilter();
           }
+        });
+
+        var clearButton = $('#clear-button');
+
+        clearButton.on('click', function (e) {
+          e.preventDefault();
+          $('.logview.row').remove();
         });
       },
 
