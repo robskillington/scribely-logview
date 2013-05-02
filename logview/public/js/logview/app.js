@@ -26,7 +26,7 @@
       init: function () {
         self.rowsContainer = $('#logviewrows');
 
-        var socket = io.connect('http://localhost:9000');
+        var socket = io.connect('http://' + window.location.host);
 
         var source = $('#row-template').html();
         self.rowTemplate = Handlebars.compile(source);
