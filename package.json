@@ -8,7 +8,12 @@
   },
   "dependencies": {
     "scribely" : "0.0.2",
-    "underscore" : "1.4.4"
+    "underscore" : "1.4.4",
+    "express": "3.2.0",
+    "ejs": "0.8.3",
+    "express-ejs-layouts": "0.3.1",
+    "socket.io": "0.9.14",
+    "underscore.string": "2.3.1"
   },
   "author": {
     "name": "Rob Skillington",
