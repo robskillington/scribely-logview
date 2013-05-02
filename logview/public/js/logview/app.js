@@ -156,6 +156,7 @@
             body: JSON.stringify(log.LogContent),
             loglevel: log.LogLevel.toUpperCase(),
             loglabel: self.getLogLabel(log.LogLevel),
+            logtag: log.LogTag,
             when: $.localtime.toLocalTime(log.Created.toISOString(), 'h:mm:ssa d MMM yyyy')
           });
 

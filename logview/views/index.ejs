@@ -11,7 +11,12 @@
                   </div>
                   <div class="modal-footer attribs">
                     <div class="when">{{when}}</div>
-                    <div class="loglevel"><span class="label {{loglabel}}">{{loglevel}}</span></div>
+                    <div class="loglevel">
+                      {{#if logtag}}
+                        <span class="label">{{logtag}}</span>
+                      {{/if}}
+                      <span class="label {{loglabel}}">{{loglevel}}</span>
+                    </div>
                   </div>
                 </div>
             </div>
