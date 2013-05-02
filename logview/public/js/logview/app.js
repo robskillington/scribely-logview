@@ -148,7 +148,7 @@
           var html = self.rowTemplate({
             body: JSON.stringify(log.LogContent),
             loglevel: log.LogLevel.toUpperCase(),
-            loglabel: self.getLogLabel(log.LogTag),
+            loglabel: self.getLogLabel(log.LogLevel),
             when: $.localtime.toLocalTime(log.Created.toISOString(), 'h:mm:ssa d MMM yyyy')
           });
 
