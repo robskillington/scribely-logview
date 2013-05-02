@@ -80,7 +80,7 @@
       },
 
       parse: function (packet) {
-        packet.Created = new Date(packet.Created);
+        packet.Created = new Date(parseInt(packet.Created));
         return packet;
       },
 
@@ -147,7 +147,7 @@
 
           var html = self.rowTemplate({
             body: JSON.stringify(log.LogContent),
-            loglevel: log.LogTag.toUpperCase(),
+            loglevel: log.LogLevel.toUpperCase(),
             loglabel: self.getLogLabel(log.LogTag),
             when: $.localtime.toLocalTime(log.Created.toISOString(), 'h:mm:ssa d MMM yyyy')
           });
@@ -155,7 +155,7 @@
           var container = $('<span></span>').html(html);
 
           var row = container.find('.row').hide();
-          row.attr('data-loglevel', log.LogTag.toLowerCase());
+          row.attr('data-loglevel', log.LogLevel.toLowerCase());
 
           if (self.paused) {
             row.addClass('hiddenbypause');
