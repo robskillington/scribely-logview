@@ -1,0 +1,30 @@
+
+<script id="row-template" type="text/x-handlebars-template">
+  <div class="logview row">
+      <div class="modal">
+        <div class="modal-body">
+          <code>{{body}}</code>
+        </div>
+        <div class="modal-footer attribs">
+          <div class="when">{{when}}</div>
+          <div class="loglevel"><span class="label {{loglabel}}">{{loglevel}}</span></div>
+        </div>
+      </div>
+  </div>
+</script>
+
+<div id="logviewrows">
+
+</div>
+
+<div id="play-control">
+    <button id="play-pause-button" class="btn btn-large btn-success" type="button">Click to pause</button>
+</div>
+
+<%- contentFor('script') %>
+<script type="text/javascript" src="/js/handlebars.js"></script>
+<script type="text/javascript" src="/js/underscore.js"></script>
+<script type="text/javascript" src="/js/underscore.string.js"></script>
+<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+<script type="text/javascript" src="/js/logview/app.js"></script>
+ 
