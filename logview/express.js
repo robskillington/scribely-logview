@@ -15,7 +15,7 @@ var collector = lib('collector');
 var out = lib('out');
 var parser = lib('parser');
 
-var BACKLOG_SNIPPET_ONLOAD = 512;
+var BACKLOG_SNIPPET_ONLOAD = 256;
 
 exports.logview = function (port) {
 
