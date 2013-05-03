@@ -2,7 +2,6 @@ var lib = function (item) { return require('./../lib/' + item); };
 
 var express = require('express'); 
 var routes = require('./routes');
-var user = require('./routes/user');
 var http = require('http');
 var path = require('path');
 var expressLayouts = require('express-ejs-layouts');
@@ -44,7 +43,6 @@ exports.logview = function (port) {
     app.use(express.static(path.join(__dirname, 'public')));
 
     app.get('/', routes.index);
-    app.get('/users', user.list);
 
     var server = http.createServer(app);
 
