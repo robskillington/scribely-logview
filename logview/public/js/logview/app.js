@@ -10,8 +10,8 @@
   });
 
   var Logview = (function () {
-    var LOGVIEW_KEEP_MAX = 1000;
-    var LOGVIEW_SHOW_MAX = 200;
+    var LOGVIEW_KEEP_MAX = 512;
+    var LOGVIEW_SHOW_MAX = 256;
     var ANIM_SPEED = 150;
     var LOG_LEVELS = ['verbose', 'info', 'warning', 'error'];
 
